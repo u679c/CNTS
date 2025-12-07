@@ -5,15 +5,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	
     <groupId>com.cnts</groupId>
-    <artifactId>CNTS</artifactId>
+    <artifactId>cnts</artifactId>
     <version>3.9.0</version>
 
-    <name>CNTS</name>
+    <name>cnts</name>
     <url>http://www.ruoyi.vip</url>
     <description>校园网故障管理系统</description>
     
     <properties>
-        <CNTS.version>3.9.0</CNTS.version>
+        <cnts.version>3.9.0</cnts.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
@@ -186,48 +186,48 @@
             <!-- 定时任务-->
             <dependency>
                 <groupId>com.cnts</groupId>
-                <artifactId>CNTS-quartz</artifactId>
-                <version>${CNTS.version}</version>
+                <artifactId>cnts-quartz</artifactId>
+                <version>${cnts.version}</version>
             </dependency>
 
             <!-- 代码生成-->
             <dependency>
                 <groupId>com.cnts</groupId>
-                <artifactId>CNTS-generator</artifactId>
-                <version>${CNTS.version}</version>
+                <artifactId>cnts-generator</artifactId>
+                <version>${cnts.version}</version>
             </dependency>
 
             <!-- 核心模块-->
             <dependency>
                 <groupId>com.cnts</groupId>
-                <artifactId>CNTS-framework</artifactId>
-                <version>${CNTS.version}</version>
+                <artifactId>cnts-framework</artifactId>
+                <version>${cnts.version}</version>
             </dependency>
 
             <!-- 系统模块-->
             <dependency>
                 <groupId>com.cnts</groupId>
-                <artifactId>CNTS-system</artifactId>
-                <version>${CNTS.version}</version>
+                <artifactId>cnts-system</artifactId>
+                <version>${cnts.version}</version>
             </dependency>
 
             <!-- 通用工具-->
             <dependency>
                 <groupId>com.cnts</groupId>
-                <artifactId>CNTS-common</artifactId>
-                <version>${CNTS.version}</version>
+                <artifactId>cnts-common</artifactId>
+                <version>${cnts.version}</version>
             </dependency>
 
         </dependencies>
     </dependencyManagement>
 
     <modules>
-        <module>CNTS-admin</module>
-        <module>CNTS-framework</module>
-        <module>CNTS-system</module>
-        <module>CNTS-quartz</module>
-        <module>CNTS-generator</module>
-        <module>CNTS-common</module>
+        <module>cnts-admin</module>
+        <module>cnts-framework</module>
+        <module>cnts-system</module>
+        <module>cnts-quartz</module>
+        <module>cnts-generator</module>
+        <module>cnts-common</module>
     </modules>
     <packaging>pom</packaging>
 

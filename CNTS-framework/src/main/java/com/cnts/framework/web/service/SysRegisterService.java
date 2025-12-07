@@ -35,7 +35,6 @@ public class SysRegisterService
 
     @Autowired
     private RedisCache redisCache;
-
     /**
      * 注册
      */
@@ -76,6 +75,8 @@ public class SysRegisterService
         }
         else
         {
+            // 注册默认绑定角色ID=2（普通用户）
+            sysUser.setRoleIds(new Long[] { 2L });
             sysUser.setNickName(username);
             sysUser.setPwdUpdateDate(DateUtils.getNowDate());
             sysUser.setPassword(SecurityUtils.encryptPassword(password));

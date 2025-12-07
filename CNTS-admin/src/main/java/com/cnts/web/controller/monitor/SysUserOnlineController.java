@@ -1,5 +1,7 @@
 package com.cnts.web.controller.monitor;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -46,7 +48,24 @@ public class SysUserOnlineController extends BaseController
         List<SysUserOnline> userOnlineList = new ArrayList<SysUserOnline>();
         for (String key : keys)
         {
-            LoginUser user = redisCache.getCacheObject(key);
+            Object cacheObj = redisCache.getCacheObject(key);
+            LoginUser user = null;
+            if (cacheObj instanceof LoginUser)
+            {
+                user = (LoginUser) cacheObj;
+            }
+            else if (cacheObj instanceof JSONObject)
+            {
+                user = ((JSONObject) cacheObj).to(LoginUser.class);
+            }
+            else if (cacheObj != null)
+            {
+                user = JSON.parseObject(JSON.toJSONString(cacheObj), LoginUser.class);
+            }
+            if (user == null)
+            {
+                continue;
+            }
             if (StringUtils.isNotEmpty(ipaddr) && StringUtils.isNotEmpty(userName))
             {
                 userOnlineList.add(userOnlineService.selectOnlineByInfo(ipaddr, userName, user));

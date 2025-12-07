@@ -12,19 +12,22 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
 public class RuoYiApplication
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         // System.setProperty("spring.devtools.restart.enabled", "false");
         SpringApplication.run(RuoYiApplication.class, args);
-        System.out.println("(♥◠‿◠)ﾉﾞ  若依启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
-                " .-------.       ____     __        \n" +
-                " |  _ _   \\      \\   \\   /  /    \n" +
-                " | ( ' )  |       \\  _. /  '       \n" +
-                " |(_ o _) /        _( )_ .'         \n" +
-                " | (_,_).' __  ___(_ o _)'          \n" +
-                " |  |\\ \\  |  ||   |(_,_)'         \n" +
-                " |  | \\ `'   /|   `-'  /           \n" +
-                " |  |  \\    /  \\      /           \n" +
-                " ''-'   `'-'    `-..-'              ");
+        System.out.println("////////////////////////////////////////////");
+        System.out.println("//          校园网故障系统启动成功～          //");
+        System.out.println("//----------------------------------------//");
+        System.out.println("//    #####   ##    ##  ########   #####  //");
+        System.out.println("//  ##    ##  ###   ##     ##     ##      //");
+        System.out.println("// ##         ####  ##     ##     ##      //");
+        System.out.println("// ##         ## ## ##     ##      #####  //");
+        System.out.println("// ##         ##  ####     ##          ## //");
+        System.out.println("//  ##    ##  ##   ###     ##          ## //");
+        System.out.println("//    ####    ##    ##     ##     ######  //");
+        System.out.println("//                                        //");
+        System.out.println("//     Campus Network Trouble System      //");
+        System.out.println("//         欢迎使用校园网故障管理系统         //");
+        System.out.println("////////////////////////////////////////////");
     }
 }

@@ -99,7 +99,7 @@ public class TicketsController extends BaseController
     @PostMapping("/assign")
     public AjaxResult assign(@RequestBody TicketAssignDTO dto)
     {
-        return toAjax(ticketsService.assign(dto.getTicketId(), dto.getAdminId()));
+        return toAjax(ticketsService.assign(dto.getTicketId(), dto.getAdminId(), dto.getEngineerName()));
     }
 
     /**

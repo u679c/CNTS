@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilde
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import com.fasterxml.jackson.core.JsonParser;
 
 /**
  * 程序注解配置
@@ -25,6 +26,9 @@ public class ApplicationConfig
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer jacksonObjectMapperCustomization()
     {
-        return jacksonObjectMapperBuilder -> jacksonObjectMapperBuilder.timeZone(TimeZone.getDefault());
+        return builder -> builder
+            .timeZone(TimeZone.getDefault())
+            // 允许 JSON 里出现 // 或 /* */ 注释，避免前端偶发携带注释导致解析报错
+            .featuresToEnable(JsonParser.Feature.ALLOW_COMMENTS);
     }
 }

@@ -55,12 +55,12 @@ public interface ITicketsService
 
     /**
      * 指派工单给管理员并记录日志
-     *
+     * 
      * @param ticketId 工单ID
      * @param adminId 管理员ID
      * @return 结果
      */
-    public int assign(Long ticketId, Long adminId);
+    public int assign(Long ticketId, Long adminId, String engineerName);
 
     /**
      * 批量删除故障工单

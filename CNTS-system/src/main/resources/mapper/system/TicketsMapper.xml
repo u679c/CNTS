@@ -14,6 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="status"    column="status"    />
         <result property="userId"    column="user_id"    />
         <result property="adminId"    column="admin_id"    />
+        <result property="engineerName"    column="engineer_name"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -22,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectTicketsVo">
-        select id, title, content, category_id, location, imgs, status, user_id, admin_id, create_by, create_time, update_by, update_time, del_flag from tickets
+        select id, title, content, category_id, location, imgs, status, user_id, admin_id, engineer_name, create_by, create_time, update_by, update_time, del_flag from tickets
     </sql>
 
     <select id="selectTicketsList" parameterType="Tickets" resultMap="TicketsResult">
@@ -36,6 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="status != null "> and status = #{status}</if>
             <if test="userId != null "> and user_id = #{userId}</if>
             <if test="adminId != null "> and admin_id = #{adminId}</if>
+            <if test="engineerName != null  and engineerName != ''"> and engineer_name like concat('%', #{engineerName}, '%')</if>
         </where>
     </select>
     
@@ -55,6 +57,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="status != null">status,</if>
             <if test="userId != null">user_id,</if>
             <if test="adminId != null">admin_id,</if>
+            <if test="engineerName != null">engineer_name,</if>
             <if test="createBy != null">create_by,</if>
             <if test="createTime != null">create_time,</if>
             <if test="updateBy != null">update_by,</if>
@@ -70,6 +73,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="status != null">#{status},</if>
             <if test="userId != null">#{userId},</if>
             <if test="adminId != null">#{adminId},</if>
+            <if test="engineerName != null">#{engineerName},</if>
             <if test="createBy != null">#{createBy},</if>
             <if test="createTime != null">#{createTime},</if>
             <if test="updateBy != null">#{updateBy},</if>
@@ -89,6 +93,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="status != null">status = #{status},</if>
             <if test="userId != null">user_id = #{userId},</if>
             <if test="adminId != null">admin_id = #{adminId},</if>
+            <if test="engineerName != null">engineer_name = #{engineerName},</if>
             <if test="createBy != null">create_by = #{createBy},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>

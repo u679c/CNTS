@@ -94,7 +94,7 @@ public class TicketsServiceImpl implements ITicketsService
     }
 
     @Override
-    public int assign(Long ticketId, Long adminId)
+    public int assign(Long ticketId, Long adminId, String engineerName)
     {
         Tickets ticket = ticketsMapper.selectTicketsById(ticketId);
         if (StringUtils.isNull(ticket))
@@ -102,6 +102,7 @@ public class TicketsServiceImpl implements ITicketsService
             return 0;
         }
         ticket.setAdminId(adminId);
+        ticket.setEngineerName(engineerName);
         ticket.setStatus(2L);
         ticket.setUpdateBy(SecurityUtils.getUsername());
         ticket.setUpdateTime(DateUtils.getNowDate());

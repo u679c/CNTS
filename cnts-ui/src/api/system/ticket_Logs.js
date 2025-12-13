@@ -9,6 +9,15 @@ export function listTicket_Logs(query) {
   })
 }
 
+// 按工单查询流转记录（时间线使用）
+export function listTicketLogsByTicket(ticketId) {
+  return listTicket_Logs({
+    ticketId,
+    pageNum: 1,
+    pageSize: 50
+  })
+}
+
 // 查询工单流转记录详细
 export function getTicket_Logs(id) {
   return request({

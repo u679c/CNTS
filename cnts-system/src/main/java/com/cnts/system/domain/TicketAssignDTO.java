@@ -6,6 +6,7 @@ public class TicketAssignDTO implements Serializable
 {
     private Long ticketId;
     private Long adminId;
+    private String engineerName;
 
     public Long getTicketId()
     {
@@ -25,5 +26,15 @@ public class TicketAssignDTO implements Serializable
     public void setAdminId(Long adminId)
     {
         this.adminId = adminId;
+    }
+
+    public String getEngineerName()
+    {
+        return engineerName;
+    }
+
+    public void setEngineerName(String engineerName)
+    {
+        this.engineerName = engineerName;
     }
 }

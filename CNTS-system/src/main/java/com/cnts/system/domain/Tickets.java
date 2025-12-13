@@ -50,6 +50,10 @@ public class Tickets extends BaseEntity
     @Excel(name = "处理管理员ID")
     private Long adminId;
 
+    /** 工程师姓名 */
+    @Excel(name = "工程师姓名")
+    private String engineerName;
+
     /** 删除标志（0代表存在 1代表删除） */
     private String delFlag;
 
@@ -143,6 +147,14 @@ public class Tickets extends BaseEntity
         return adminId;
     }
 
+    public String getEngineerName() {
+        return engineerName;
+    }
+
+    public void setEngineerName(String engineerName) {
+        this.engineerName = engineerName;
+    }
+
     public void setDelFlag(String delFlag) 
     {
         this.delFlag = delFlag;
@@ -165,6 +177,7 @@ public class Tickets extends BaseEntity
             .append("status", getStatus())
             .append("userId", getUserId())
             .append("adminId", getAdminId())
+            .append("engineerName", getEngineerName())
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("updateBy", getUpdateBy())

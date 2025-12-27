@@ -70,6 +70,19 @@ export function changeUserStatus(userId, status) {
   })
 }
 
+// 用户忙闲状态修改
+export function changeUserBusyStatus(userId, busyStatus) {
+  const data = {
+    userId,
+    busyStatus
+  }
+  return request({
+    url: '/system/user/changeBusyStatus',
+    method: 'put',
+    data: data
+  })
+}
+
 // 查询用户个人信息
 export function getUserProfile() {
   return request({

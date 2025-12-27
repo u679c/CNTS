@@ -336,6 +336,18 @@ public class SysUserServiceImpl implements ISysUserService
     }
 
     /**
+     * 修改用户忙闲状态
+     *
+     * @param user 用户信息
+     * @return 结果
+     */
+    @Override
+    public int updateUserBusyStatus(SysUser user)
+    {
+        return userMapper.updateUserBusyStatus(user);
+    }
+
+    /**
      * 修改用户基本信息
      * 
      * @param user 用户信息

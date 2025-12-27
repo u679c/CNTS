@@ -675,6 +675,7 @@ export default {
       const params = {
         roleKey: "engineer",
         roleId: 3,
+        busyStatus: "0",
         userName: query || undefined,
         pageNum: 1,
         pageSize: 20

@@ -216,6 +216,34 @@ public class SysUserController extends BaseController
     }
 
     /**
+     * 忙闲状态修改
+     */
+    @PreAuthorize("@ss.hasPermi('system:user:edit')")
+    @Log(title = "用户管理", businessType = BusinessType.UPDATE)
+    @PutMapping("/changeBusyStatus")
+    public AjaxResult changeBusyStatus(@RequestBody SysUser user)
+    {
+        if (user.getUserId() == null)
+        {
+            return error("用户ID不能为空");
+        }
+        if (!"0".equals(user.getBusyStatus()) && !"1".equals(user.getBusyStatus()))
+        {
+            return error("忙闲状态值不合法");
+        }
+        userService.checkUserAllowed(user);
+        userService.checkUserDataScope(user.getUserId());
+        List<SysRole> roles = roleService.selectRolesByUserId(user.getUserId());
+        boolean isEngineer = roles.stream().anyMatch(role -> "engineer".equals(role.getRoleKey()));
+        if (!isEngineer)
+        {
+            return error("仅工程师角色允许设置忙闲状态");
+        }
+        user.setUpdateBy(getUsername());
+        return toAjax(userService.updateUserBusyStatus(user));
+    }
+
+    /**
      * 根据用户编号获取授权角色
      */
     @PreAuthorize("@ss.hasPermi('system:user:query')")

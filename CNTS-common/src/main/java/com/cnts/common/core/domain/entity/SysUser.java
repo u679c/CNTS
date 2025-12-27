@@ -60,6 +60,9 @@ public class SysUser extends BaseEntity
     @Excel(name = "账号状态", readConverterExp = "0=正常,1=停用")
     private String status;
 
+    /** 工程师忙闲状态（0闲 1忙） */
+    private String busyStatus;
+
     /** 删除标志（0代表存在 2代表删除） */
     private String delFlag;
 
@@ -222,6 +225,16 @@ public class SysUser extends BaseEntity
         this.status = status;
     }
 
+    public String getBusyStatus()
+    {
+        return busyStatus;
+    }
+
+    public void setBusyStatus(String busyStatus)
+    {
+        this.busyStatus = busyStatus;
+    }
+
     public String getDelFlag()
     {
         return delFlag;
@@ -325,6 +338,7 @@ public class SysUser extends BaseEntity
             .append("avatar", getAvatar())
             .append("password", getPassword())
             .append("status", getStatus())
+            .append("busyStatus", getBusyStatus())
             .append("delFlag", getDelFlag())
             .append("loginIp", getLoginIp())
             .append("loginDate", getLoginDate())
